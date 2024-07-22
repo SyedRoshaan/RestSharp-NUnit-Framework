@@ -1,18 +1,19 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Allure.Net.Commons;
+using Allure.NUnit;
+using Allure.NUnit.Attributes;
+using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using RestSharp_NUnit_Framework.Configuration;
 using RestSharp_NUnit_Framework.Drivers;
-using RestSharp_NUnit_Framework.model;
 using RestSharp_NUnit_Framework.Support;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RestSharp_NUnit_Framework.Tests
 {
+    [AllureNUnit]
     [TestFixture]
+    [AllureSuite("APIAutomationSuite")]
+    [AllureDisplayIgnored]
     internal class APIAutomation
     {
         [OneTimeSetUp]
@@ -28,6 +29,10 @@ namespace RestSharp_NUnit_Framework.Tests
         }
 
         [Test]
+        [AllureTag("CreateUser")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureOwner("testuser")]
+        [AllureSuite("UserOperations")]
         public void CreateUser()
         {
             string users = @"{
@@ -40,6 +45,10 @@ namespace RestSharp_NUnit_Framework.Tests
         }
 
         [Test]
+        [AllureTag("UpdateUser")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("testuser")]
+        [AllureSuite("UserOperations")]
         public void UpdateUser()
         {
             string users = @"{
@@ -51,12 +60,20 @@ namespace RestSharp_NUnit_Framework.Tests
         }
 
         [Test]
+        [AllureTag("GetSingleUser")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("testuser")]
+        [AllureSuite("UserOperations")]
         public void GetSingleUser() {
             RestSharpManager.MakeGETRequest("/api/users/2");
             RestSharpManager.VerifyResponseCode(200);
         }
 
         [Test]
+        [AllureTag("DeleteUser")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("testuser")]
+        [AllureSuite("UserOperations")]
         public void DeleteUser()
         {
             RestSharpManager.MakeDELETERequest("/api/users/2");
