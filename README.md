@@ -38,4 +38,4 @@ Contributions are welcome! Please fork the repository and submit pull requests f
 This project is licensed under the MIT License.
 
 ## Contact
-If you have any questions or need some help with the repo, please do contact me on [LinkedIn] (https://www.linkedin.com/in/roshaanrehman/).
+If you have any questions or need some help with the repo, please do contact me on [LinkedIn](https://www.linkedin.com/in/roshaanrehman/).
